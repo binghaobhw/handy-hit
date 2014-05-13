@@ -28,7 +28,8 @@
         },
         showSearch: ko.observable(false),
         knowledgeList: knowledgeList,
-        title: title()
+        title: title(),
+        categoryId: categoryId
     };
     return viewModel;
 };  

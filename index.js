@@ -1,12 +1,18 @@
 ﻿(function() {
     "use strict";
 
-    var HandyHit = window.HandyHit = { };
+    window.HandyHit = window.HandyHit || {};
     
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     DevExpress.devices.current("iPhone5");
 
     $(function() {
+        function initFeed() {
+            HandyHit.feed = new google.feeds.Feed("http://today.hit.edu.cn/rss.xml");
+            HandyHit.feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
+            HandyHit.feed.setNumEntries(20);
+        }
+        google.load("feeds", "1", {"callback": initFeed});
         HandyHit.app = new DevExpress.framework.html.HtmlApplication({
             namespace: HandyHit,
             
@@ -18,8 +24,8 @@
                 icon: "home"
               },
               {
-                title: "Products",
-                action: "#products",
+                title: "资讯",
+                action: "#info",
                 icon: "info"
               }
             ],
@@ -53,6 +59,7 @@
         });
 
         HandyHit.app.router.register(":view/:id", { view: "category", id: undefined });
+        HandyHit.app.router.register(":view/:cid/:id", {view: "category", cid: undefined, id: undefined});
         HandyHit.app.navigate();
     });
     

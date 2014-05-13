@@ -1,0 +1,10 @@
+﻿<div data-options="dxView: {name: 'info', title: '资讯'}" >
+    <div data-options="dxContent: { targetPlaceholder: 'content' } " >
+        <div data-bind="dxLoadPanel: { message: loadPanelMessage, visible: loadPanelVisible }"></div>
+        <div data-bind="if: isLoaded">
+            <div data-bind="dxList: {dataSource: feedEntries, onItemClick: function(e) {var index = e.itemElement.index(); HandyHit.app.navigate('infoDetail' + index);}}">
+                <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title"></div>
+            </div>
+        </div>
+    </div>
+</div>

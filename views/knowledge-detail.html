@@ -1,7 +1,14 @@
-﻿<div data-options="dxView: {name: 'knowledge-detail', title: 'Product'}">
+﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
-        <div data-bind="dxGallery: {dataSource: galleryData}">
-            <div data-options="dxTemplate: {name: 'item'}" data-bind="text: content"></div>
+        <div data-bind="dxScrollView: {}">
+            <div data-bind="foreach: detail">
+                <div data-bind="ifnot: isImage">
+                    <p data-bind="text: content"></p>
+                </div>
+                <div data-bind="if: isImage">
+                    <img data-bind="if: isImage, attr: {src: content}">
+                </div>
+            </div>
         </div>
     </div>
 </div>
