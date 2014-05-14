@@ -3,7 +3,7 @@
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div data-bind="dxTextBox: { mode: 'search', value: searchString, visible: showSearch, valueUpdateEvent: 'search change keyup' }"></div>
         <div data-bind="dxList: { dataSource: knowledgeList }">
-            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title, dxAction: '#knowledgeDetail/{categoryId}/{id}'"></div>
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title, dxAction: function() {$root.navigateDetail($data);}"></div>
         </div>
     </div>
 </div> 

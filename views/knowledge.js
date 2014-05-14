@@ -20,6 +20,11 @@
             }
         }
     }
+
+    function navigateDetail(item) {
+        HandyHit.app.navigate('knowledgeDetail/' + categoryId + '/' + item['id']);
+    }
+
     var viewModel = {
         searchString: searchString,
         toggleSearch: function() {
@@ -29,7 +34,7 @@
         showSearch: ko.observable(false),
         knowledgeList: knowledgeList,
         title: title(),
-        categoryId: categoryId
+        navigateDetail: navigateDetail
     };
     return viewModel;
 };  

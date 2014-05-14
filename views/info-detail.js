@@ -1,9 +1,21 @@
 ﻿HandyHit['infoDetail'] = function (params) {
-    var detail = ko.observable();
-    detail(HandyHit.data.feedEntries[params.id]);
+    var entry = HandyHit.data.feedEntries()[params.id];
+    var content = entry['content'];
+    var url = 'http://today.hit.edu.cn';
+    var contentTree = $('<div>' + content + '</div>');
+    contentTree.find('img').each(function() {
+        var src = $(this).attr('src');
+        if (src.charAt(0) != '/') {
+            src = url + '/' + src;
+        } else {
+            src = url + src;
+        }
+        $(this).attr('src', src);
+    });
+    modifiedContent = contentTree.html();
     var viewModel = {
         // Put the binding properties here
-        detail: detail
+        content: modifiedContent
     };
 
     return viewModel;

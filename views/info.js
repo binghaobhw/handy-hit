@@ -2,7 +2,7 @@
 HandyHit.info = function (params) {
     var isLoaded = ko.observable(false),
         loadPanelVisible = ko.observable(false),
-        loadPanelMessage = ko.observable("");
+        loadPanelMessage = ko.observable();
 
     function loadData() {
         isLoaded(false);
@@ -18,15 +18,19 @@ HandyHit.info = function (params) {
         });
     }
 
+    function navigateDetail(entry) {
+        var id = HandyHit.data.feedEntries.indexOf(entry);
+        HandyHit.app.navigate('infoDetail/' + id);
+    }
+
     var viewModel = {
         // Put the binding properties here
         isLoaded: isLoaded,
         loadPanelVisible: loadPanelVisible,
         loadPanelMessage: loadPanelMessage,
         feedEntries: HandyHit.data.feedEntries,
-        viewShowing: function () {
-            loadData();
-        }
+        viewShowing: loadData,
+        navigateDetail: navigateDetail
     };
 
     return viewModel;

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
-        id="com.scorpio147.wbh"
+        id="com.scorpio147wbh"
         versionCode="10"
         version="1.0.0" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PhoneJS Demo</name>
+    <name>Handy HIT</name>
 
     <description>
-        An example for phonegap build docs.
+        An guider of Harbin Institute of Technology.
     </description>
 
     <author href="" email="scorpio147wbh@gmail.com">
         wilfred wang
     </author>
+
+    <access origin="https://www.google.com" subdomains="true" />
 
 </widget>

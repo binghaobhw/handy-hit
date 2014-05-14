@@ -1,7 +1,7 @@
 ﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
         <div data-bind="dxScrollView: {}">
-            <div data-bind="foreach: detail">
+            <div data-bind="foreach: content">
                 <div data-bind="ifnot: isImage">
                     <p data-bind="text: content"></p>
                 </div>

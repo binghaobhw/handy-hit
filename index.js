@@ -59,7 +59,7 @@
         });
 
         HandyHit.app.router.register(":view/:id", { view: "category", id: undefined });
-        HandyHit.app.router.register(":view/:cid/:id", {view: "category", cid: undefined, id: undefined});
+        HandyHit.app.router.register(":view/:categoryId/:id", {view: undefined, categoryId: undefined, id: undefined});
         HandyHit.app.navigate();
     });
     
