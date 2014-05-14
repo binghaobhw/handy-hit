@@ -1,10 +1,8 @@
 ﻿<div data-options="dxView: {name: 'info', title: '资讯'}" >
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
         <div data-bind="dxLoadPanel: { message: loadPanelMessage, visible: loadPanelVisible }"></div>
-        <div data-bind="if: isLoaded">
-            <div data-bind="dxList: {dataSource: feedEntries}">
-                <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title, dxAction: function() {$root.navigateDetail($data);}"></div>
-            </div>
+        <div data-bind="dxList: {dataSource: feedEntries}, visible: isLoaded">
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title, dxAction: function() {$root.navigateDetail($data);}"></div>
         </div>
     </div>
 </div>
