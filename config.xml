@@ -18,5 +18,6 @@
     </author>
 
     <!--<access origin="https://www.google.com" subdomains="true" />-->
+    <gap:splash src="splash.png" />
 
 </widget>
