@@ -2,20 +2,12 @@
     var entry = HandyHit.data.feedEntries()[params.id];
     var content = entry['content'];
     var url = 'http://today.hit.edu.cn';
-    var contentTree = $('<div>' + content + '</div>');
-    contentTree.find('img').each(function() {
-        var src = $(this).attr('src');
-        if (src.charAt(0) != '/') {
-            src = url + '/' + src;
-        } else {
-            src = url + src;
-        }
-        $(this).attr('src', src);
-    });
-    modifiedContent = contentTree.html();
+    // cross domain relative path
+    content = content.replace(/src="([^"]*)"/g, 'src="' + url + '$1"');
+    content = content.replace(/href="([^"]*)"/g, 'href="' + url + '$1"');
     var viewModel = {
         // Put the binding properties here
-        content: modifiedContent
+        content: content
     };
 
     return viewModel;
