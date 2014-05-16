@@ -29,7 +29,13 @@ HandyHit.info = function (params) {
         loadPanelVisible: loadPanelVisible,
         loadPanelMessage: loadPanelMessage,
         feedEntries: HandyHit.data.feedEntries,
-        viewShowing: loadData,
+        viewShowing: function() {
+            if (!HandyHit.util.isConnected()) {
+                DevExpress.ui.notify('无网络连接', 'warning', 3000);
+            } else {
+                loadData();
+            }
+        },
         navigateDetail: navigateDetail
     };
 
