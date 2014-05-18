@@ -27,6 +27,11 @@
                 title: "资讯",
                 action: "#info",
                 icon: "info"
+              },
+              {
+                  title: "地图",
+                  action: "#map",
+                  icon: "info"
               }
             ],
             commandMapping: {

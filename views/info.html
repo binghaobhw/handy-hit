@@ -2,7 +2,10 @@
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
         <div data-bind="dxLoadPanel: { message: loadPanelMessage, visible: loadPanelVisible }"></div>
         <div data-bind="dxList: {dataSource: feedEntries, pullRefreshEnabled: true}, visible: isLoaded">
-            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: title, dxAction: function() {$root.navigateDetail($data);}"></div>
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="dxAction: function() {$root.navigateDetail($data);}">
+                <p><small data-bind="text: title"></small></p>
+                <p><small data-bind="text: publishedDate"></small></p>
+            </div>
         </div>
     </div>
 </div>
