@@ -16,7 +16,25 @@
                 zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
             });
             mapObj.addControl(geolocation);
-            geolocation.getCurrentPosition();
+        });
+        mapObj.plugin('AMap.CloudDataLayer', function () {
+            var layerOptions = {
+                map: mapObj,
+                query:{}
+            };
+            var cloudDataLayer = new AMap.CloudDataLayer('5378cc94e4b0850d7b1d362a', layerOptions); //实例化云图层类
+
+            AMap.event.addListener(cloudDataLayer, 'click', function (result) {
+                var clouddata = result.data;
+                var infoWindow = new AMap.InfoWindow({
+                    content:"<h3><font face=\"微软雅黑\"color=\"#3366FF\">"+ clouddata._name +"</font></h3><hr />地址："+ clouddata._address + "<br />" + "创建时间：" + clouddata._createtime+ "<br />" + "更新时间：" + clouddata._updatetime,
+                    size:new AMap.Size(300, 0),
+                    autoMove:true,
+                    offset:new AMap.Pixel(0,-5)
+                });
+
+                infoWindow.open(mapObj, clouddata._location);
+            });
         });
     }
 };
