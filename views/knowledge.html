@@ -1,4 +1,5 @@
 ﻿<div data-options="dxView : { name: 'knowledge'} " >
+    <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
     <div data-bind="dxCommand: { id: 'search', title: 'Search', placeholder: 'Search...', icon: 'find', action: toggleSearch }" ></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div data-bind="dxTextBox: { mode: 'search', value: searchString, visible: showSearch, valueUpdateEvent: 'search change keyup' }"></div>

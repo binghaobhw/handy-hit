@@ -1,7 +1,13 @@
 ﻿<div data-options="dxView: {name: 'infoDetail'}" >
-    <div data-options="dxContent: { targetPlaceholder: 'content' } " >
-        <div data-bind="dxScrollView: {}">
-            <p data-bind="html: content"></p>
+    <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
+    <div data-options="dxContent: {targetPlaceholder: 'content'}" >
+        <div data-bind="dxScrollView: {visible: !galleryVisible}">
+            <div class="info-detail" data-bind="html: content"></div>
         </div>>
+        <div data-bind="dxGallery: {
+            dataSource: pictures,
+            clickAction: changeGalleryVisible,
+            visible: galleryVisible
+        }"></div>
     </div>
 </div>

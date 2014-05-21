@@ -18,46 +18,27 @@
             
             navigationType: "navbar",
             navigation: [
-              {
-                title: "分类",
-                action: "#category",
-                icon: "home"
-              },
-              {
-                title: "资讯",
-                action: "#info",
-                icon: "info"
-              },
-              {
-                  title: "地图",
-                  action: "#map",
-                  icon: "info"
-              }
+                {
+                    title: "分类",
+                    action: "#category",
+                    icon: "home"
+                },
+                {
+                    title: "资讯",
+                    action: "#info",
+                    icon: "info"
+                },
+                {
+                    title: "地图",
+                    action: "#map",
+                    icon: "info"
+                }
             ],
             commandMapping: {
                 "ios-header-toolbar": {
                     commands: [
-                        { id: "search", location: 'right', showText: false }
-                    ]
-                },
-                "android-footer-toolbar": {
-                    commands: [
-                        { id: "search", location: 'center', showText: false }
-                    ]
-                },
-                "tizen-footer-toolbar": {
-                    commands: [
-                        { id: "search", location: 'center', showText: false }
-                    ]
-                },
-                "generic-header-toolbar": {
-                    commands: [
-                        { id: "search", location: 'right', showText: false }
-                    ]
-                },
-                "win8-phone-appbar": {
-                    commands: [
-                        { id: "search", location: 'center', showText: true }
+                        {id: 'back', location: 'left', showText: false},
+                        {id: 'search', location: 'right', showText: false}
                     ]
                 }
             }
