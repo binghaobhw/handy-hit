@@ -55,3 +55,11 @@ HandyHit.data.categories = [];
 for (var id in HandyHit.data.simpleData) {
     HandyHit.data.categories.push({id: id, name: HandyHit.data.simpleData[id]['categoryName']})
 }
+
+HandyHit.data.markerData = [
+    {
+        name: '二公寓',
+        lng: 126.636518,
+        lat: 45.742887
+    }
+];

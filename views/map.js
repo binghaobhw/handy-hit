@@ -1,6 +1,18 @@
 ﻿ko.bindingHandlers['myMap'] = {
     init: function(element) {
         var mapObj = new AMap.Map(element.id);
+        function initMarkers() {
+            for (var i = 0; i < HandyHit.data.markerData.length; i++) {
+                var markerData = HandyHit.data.markerData[i];
+                new AMap.Marker({
+                    map: mapObj,
+                    content: markerData['name'],
+                    position: new AMap.LngLat(markerData['lng'], markerData['lat'])
+                });
+            }
+        }
+        initMarkers();
+
         mapObj.plugin('AMap.Geolocation', function () {
             var geolocation = new AMap.Geolocation({
                 enableHighAccuracy: true,//是否使用高精度定位，默认:true
@@ -17,7 +29,7 @@
             });
             mapObj.addControl(geolocation);
         });
-        mapObj.plugin('AMap.CloudDataLayer', function () {
+        /*mapObj.plugin('AMap.CloudDataLayer', function () {
             var layerOptions = {
                 map: mapObj,
                 query:{}
@@ -35,7 +47,7 @@
 
                 infoWindow.open(mapObj, clouddata._location);
             });
-        });
+        });*/
     }
 };
 HandyHit.map = function (params) {

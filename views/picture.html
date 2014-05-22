@@ -1,0 +1,10 @@
+﻿<div data-options="dxView: {name: 'picture'}" >
+    <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
+    <div data-options="dxContent: {targetPlaceholder: 'content'}" >
+        <div data-bind="dxGallery: {
+            dataSource: pictures,
+            clickAction: '#_back',
+            selectedIndex: selectedIndex
+        }"></div>
+    </div>
+</div>
