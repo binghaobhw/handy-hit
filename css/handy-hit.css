@@ -1,15 +1,21 @@
 body {
     font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
-p {
+p.info-detail, p.knowledge-detail {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-.info-detail {
+.info-detail, .knowledge-detail {
     font-size: 14px;
     padding: 13px 15px 0;
 }
-img, img.info-detail {
+img.info-detail, img.knowledge-detail {
     max-width: 100%;
     height: auto;
+}
+.marker-content {
+    white-space: nowrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

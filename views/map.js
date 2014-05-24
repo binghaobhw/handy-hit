@@ -1,12 +1,24 @@
 ﻿ko.bindingHandlers['myMap'] = {
     init: function(element) {
-        var mapObj = new AMap.Map(element.id);
+        var mapObj = new AMap.Map(element.id, {
+            touchZoom: true
+        });
+
         function initMarkers() {
             for (var i = 0; i < HandyHit.data.markerData.length; i++) {
                 var markerData = HandyHit.data.markerData[i];
+                var markerContent = $('<div></div>');
+                var icon = $('<img>');
+                icon.attr('src', 'img/marker.png');
+                icon.addClass('marker-content');
+                var label = $('<div></div>');
+                label.append(markerData['name']);
+                label.addClass('marker-content');
+                markerContent.append(icon);
+                markerContent.append(label);
                 new AMap.Marker({
                     map: mapObj,
-                    content: markerData['name'],
+                    content: markerContent[0],
                     position: new AMap.LngLat(markerData['lng'], markerData['lat'])
                 });
             }
@@ -29,25 +41,6 @@
             });
             mapObj.addControl(geolocation);
         });
-        /*mapObj.plugin('AMap.CloudDataLayer', function () {
-            var layerOptions = {
-                map: mapObj,
-                query:{}
-            };
-            var cloudDataLayer = new AMap.CloudDataLayer('5378cc94e4b0850d7b1d362a', layerOptions); //实例化云图层类
-
-            AMap.event.addListener(cloudDataLayer, 'click', function (result) {
-                var clouddata = result.data;
-                var infoWindow = new AMap.InfoWindow({
-                    content:"<h3><font face=\"微软雅黑\"color=\"#3366FF\">"+ clouddata._name +"</font></h3><hr />地址："+ clouddata._address + "<br />" + "创建时间：" + clouddata._createtime+ "<br />" + "更新时间：" + clouddata._updatetime,
-                    size:new AMap.Size(300, 0),
-                    autoMove:true,
-                    offset:new AMap.Pixel(0,-5)
-                });
-
-                infoWindow.open(mapObj, clouddata._location);
-            });
-        });*/
     }
 };
 HandyHit.map = function (params) {

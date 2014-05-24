@@ -31,7 +31,7 @@
                 {
                     title: "地图",
                     action: "#map",
-                    icon: "info"
+                    icon: "map"
                 }
             ],
             commandMapping: {
