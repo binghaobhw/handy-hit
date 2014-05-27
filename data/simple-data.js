@@ -64,7 +64,7 @@ HandyHit.data.markerData = [
     },
     {
         name: '三公寓',
-        lng: 126.636518,
-        lat: 45.742887
+        lng: 126.635343,
+        lat: 45.743524
     }
 ];

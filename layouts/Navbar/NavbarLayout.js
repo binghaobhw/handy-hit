@@ -8,7 +8,7 @@
         ACTIVE_PIVOT_ITEM_SELECTOR = ".dx-pivot-item:not(.dx-pivot-item-hidden)",
         LAYOUT_FOOTER_SELECTOR = ".layout-footer",
         ACTIVE_TOOLBAR_SELECTOR = ".dx-active-view .dx-toolbar";
-    DX.framework.html.NavBarController = DX.framework.html.DefaultLayoutController.inherit({
+    DX.framework.html.EmptyController = DX.framework.html.DefaultLayoutController.inherit({
         _getLayoutTemplateName: function() {
             return "navbar"
         },
@@ -33,28 +33,28 @@
     DX.framework.html.layoutControllers.push({
         navigationType: "navbar",
         platform: "ios",
-        controller: new DX.framework.html.NavBarController
+        controller: new DX.framework.html.EmptyController
     });
     DX.framework.html.layoutControllers.push({
         navigationType: "navbar",
         platform: "android",
-        controller: new DX.framework.html.NavBarController
+        controller: new DX.framework.html.EmptyController
     });
     DX.framework.html.layoutControllers.push({
         navigationType: "navbar",
         platform: "tizen",
-        controller: new DX.framework.html.NavBarController
+        controller: new DX.framework.html.EmptyController
     });
     DX.framework.html.layoutControllers.push({
         navigationType: "navbar",
         platform: "generic",
-        controller: new DX.framework.html.NavBarController
+        controller: new DX.framework.html.EmptyController
     });
     DX.framework.html.layoutControllers.push({
         navigationType: "split",
         platform: "win8",
         phone: false,
         root: true,
-        controller: new DX.framework.html.NavBarController
+        controller: new DX.framework.html.EmptyController
     })
 })(jQuery, DevExpress);

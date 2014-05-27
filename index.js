@@ -46,6 +46,16 @@
 
         HandyHit.app.router.register(":view/:id", { view: "category", id: undefined });
         HandyHit.app.router.register(":view/:categoryId/:id", {view: undefined, categoryId: undefined, id: undefined});
+        HandyHit.app.viewsWithoutNavBar = ['knowledgeDetail', 'infoDetail', 'picture'];
+        HandyHit.app.resolveLayoutController.add(function(args) {
+            var viewName = args.viewInfo.viewName;
+            if(HandyHit.app.viewsWithoutNavBar.indexOf(viewName) != -1) {
+                var result = $.grep(args.availableLayoutControllers, function (item, index) {
+                    return item.navigationType == 'empty';
+                });
+                args.layoutController = result[0].controller;
+            }
+        });
         HandyHit.app.navigate();
     });
     
