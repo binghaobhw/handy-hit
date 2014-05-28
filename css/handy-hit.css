@@ -1,6 +1,8 @@
-p.info-detail, p.knowledge-detail {
+.info-detail p, .knowledge-detail p {
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin-bottom: 15px;
+    line-height: 23px;
 }
 .info-detail, .knowledge-detail {
     font-size: 14px;
@@ -9,6 +11,7 @@ p.info-detail, p.knowledge-detail {
 .info-detail img, .knowledge-detail img {
     width: 100%;
     height: auto;
+    margin-bottom: 15px;
 }
 .marker-content {
     white-space: nowrap;

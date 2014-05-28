@@ -1,12 +1,32 @@
-HandyHit['knowledgeDetail'] = function (params) {
-    var categoryId = parseInt(params.categoryId);
-    var id = parseInt(params.id);
-    var knowledge = HandyHit.data.simpleData[categoryId]['knowledgeList'][id];
-    var title = knowledge['title'];
-    var content = knowledge['content'];
+HandyHit['knowledgeDetail'] = function(params) {
+
+    var indexMap;
+    var paragraphs = HandyHit.data.currentKnowledge().paragraphs;
+    var pictures;
+    buildPicture();
+    function buildPicture() {
+        indexMap = {};
+        pictures = [];
+        for (var i = 0; i < paragraphs.length; i++) {
+            if ('image' in paragraphs[i]) {
+                pictures.push(paragraphs[i]['image']);
+                indexMap[i] = pictures.length - 1;
+            }
+        }
+        HandyHit.buildPicture(pictures, 'knowledgeDetail');
+    }
+
     var viewModel = {
-        title: title,
-        content: content
+        paragraphs: paragraphs,
+        navigatePicture: function(index) {
+            HandyHit.navigatePicture(indexMap[index]);
+        },
+        title: HandyHit.data.currentKnowledge().title,
+        viewShown: function() {
+            if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
+                HandyHit.buildPicture(pictures, 'knowledgeDetail');
+            }
+        }
     };
     return viewModel;
 };   

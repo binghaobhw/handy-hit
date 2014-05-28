@@ -19,7 +19,7 @@
             navigationType: "navbar",
             navigation: [
                 {
-                    title: "分类",
+                    title: "指南",
                     action: "#category",
                     icon: "home"
                 },
@@ -46,7 +46,7 @@
 
         HandyHit.app.router.register(":view/:id", { view: "category", id: undefined });
         HandyHit.app.router.register(":view/:categoryId/:id", {view: undefined, categoryId: undefined, id: undefined});
-        HandyHit.app.viewsWithoutNavBar = ['knowledgeDetail', 'infoDetail', 'picture'];
+        HandyHit.app.viewsWithoutNavBar = ['knowledge', 'knowledgeDetail', 'infoDetail', 'picture'];
         HandyHit.app.resolveLayoutController.add(function(args) {
             var viewName = args.viewInfo.viewName;
             if(HandyHit.app.viewsWithoutNavBar.indexOf(viewName) != -1) {

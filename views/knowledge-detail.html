@@ -1,13 +1,13 @@
 ﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
     <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
-        <div class="knowledge-detail" data-bind="dxScrollView: {}">
-            <div data-bind="foreach: content">
-                <div data-bind="ifnot: isImage">
-                    <p data-bind="text: content"></p>
-                </div>
-                <div data-bind="if: isImage">
-                    <img data-bind="if: isImage, attr: {src: content}">
+        <div data-bind="dxScrollView: {}">
+            <div class="knowledge-detail">
+                <div data-bind="foreach: paragraphs">
+                    <div data-bind="if: 'image' in $data">
+                        <img data-bind="attr: {src: image}, click: function() {$root.navigatePicture($index());}"/>
+                    </div>
+                    <p data-bind="text: paragraph"></p>
                 </div>
             </div>
         </div>

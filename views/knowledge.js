@@ -1,4 +1,6 @@
-﻿HandyHit.knowledge = function (params) {
+﻿HandyHit.data = HandyHit.data || {};
+HandyHit.data.currentKnowledge = ko.observable();
+HandyHit['knowledge'] = function (params) {
     var categoryId = parseInt(params.id);
     var originList = HandyHit.data.simpleData[categoryId]['knowledgeList'];
     var title = ko.observable(HandyHit.data.simpleData[categoryId]['categoryName']);
@@ -21,8 +23,9 @@
         }
     }
 
-    function navigateDetail(item) {
-        HandyHit.app.navigate('knowledgeDetail/' + categoryId + '/' + item['id']);
+    function navigateDetail(knowledge) {
+        HandyHit.data.currentKnowledge(knowledge);
+        HandyHit.app.navigate('knowledgeDetail/' + categoryId + '/' + knowledge['id']);
     }
 
     var viewModel = {
@@ -33,7 +36,7 @@
         },
         showSearch: ko.observable(false),
         knowledgeList: knowledgeList,
-        title: title(),
+        title: title,
         navigateDetail: navigateDetail
     };
     return viewModel;

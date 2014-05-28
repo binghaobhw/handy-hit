@@ -1,5 +1,4 @@
-﻿
-HandyHit.category = function (params) {
+﻿HandyHit.category = function (params) {
     var viewModel = {
         categories: HandyHit.data.categories
     };

@@ -1,6 +1,7 @@
 ﻿HandyHit['infoDetail'] = function (params) {
     var title;
     var content;
+    var pictures;
     HandyHit.data.feedEntrySource.store().byKey(params.id)
         .done(function(dataItem) {
             title = dataItem['title'];
@@ -8,20 +9,28 @@
             var domain = 'http://today.hit.edu.cn';
             // cross domain relative path
             content = content.replace(/href="([^"]*)"/g, 'href="' + domain + '$1"');
-            HandyHit.data.pictures.removeAll();
+            pictures = [];
             var index = -1;
             content = content.replace(/src="([^"]*)"/g, function (whole, group) {
                 var picturePath = domain + group;
-                HandyHit.data.pictures.push(picturePath);
+                pictures.push(picturePath);
                 index += 1;
                 return 'src="' + picturePath + '" onclick="HandyHit.navigatePicture(' + index + ');"';
             });
+            HandyHit.buildPicture(pictures, 'infoDetail');
         });
 
     var viewModel = {
         // Put the binding properties here
         title: title,
-        content: content
+        content: content,
+        viewShown: function() {
+            if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
+                HandyHit.buildPicture(pictures, 'infoDetail');
+            }
+        }
+
+
     };
     return viewModel;
 };
