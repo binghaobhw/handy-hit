@@ -32,6 +32,11 @@
                     title: "地图",
                     action: "#map",
                     icon: "map"
+                },
+                {
+                    title: "share",
+                    action: "#share",
+                    icon: "info"
                 }
             ],
             commandMapping: {
