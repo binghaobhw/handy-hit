@@ -1376,11 +1376,11 @@ HandyHit.data.simpleData = [
             {
                 id: 1,
                 title: '消遣娱乐之麦霸中心',
-                image: 'img/3/img/3/2_1.jpg',
+                image: 'img/3/2_1.jpg',
                 paragraphs: [
                     {
                         paragraph: '【GAGA】',
-                        image: 'img/3/img/3/2_2.jpg'
+                        image: 'img/3/2_2.jpg'
                     },
                     {
                         paragraph: 'GAGA是什么，难道是全球风靡的雷帝嘎嘎小姐？'
@@ -1450,11 +1450,11 @@ HandyHit.data.simpleData = [
             {
                 id: 2,
                 title: '吃货福地之真锅咖啡',
-                image: 'img/3/img/3/3_1.jpg',
+                image: 'img/3/3_1.jpg',
                 paragraphs: [
                     {
                         paragraph: '【真锅咖啡】',
-                        image: 'img/3/img/3/3_2.jpg'
+                        image: 'img/3/3_2.jpg'
                     },
                     {
                         paragraph: '全国知名连锁，隽永典雅珈琲道文化。'
