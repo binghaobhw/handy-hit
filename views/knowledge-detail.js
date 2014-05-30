@@ -26,6 +26,9 @@ HandyHit['knowledgeDetail'] = function(params) {
             if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
                 HandyHit.buildPicture(pictures, 'knowledgeDetail');
             }
+        },
+        share: function() {
+            window.plugins.socialsharing.share('Message only');
         }
     };
     return viewModel;

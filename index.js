@@ -38,7 +38,8 @@
                 "ios-header-toolbar": {
                     commands: [
                         {id: 'back', location: 'left', showText: false},
-                        {id: 'search', location: 'right', showText: false}
+                        {id: 'search', location: 'right', showText: false},
+                        {id: 'share', location: 'right', showText: false}
                     ]
                 }
             }
