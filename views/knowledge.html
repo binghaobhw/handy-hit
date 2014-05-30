@@ -4,8 +4,14 @@
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div data-bind="dxTextBox: { mode: 'search', value: searchString, visible: showSearch, valueUpdateEvent: 'search change keyup' }"></div>
         <div data-bind="dxList: { dataSource: knowledgeList }">
-            <div data-options="dxTemplate : { name: 'item' }"
-                 data-bind="text: title, dxAction: function() {$root.navigateDetail($data);}">
+            <div data-options="dxTemplate : { name: 'item' }">
+                <div class="knowledge" data-bind="dxAction: function() {$root.navigateDetail($data);}">
+                    <div class="knowledge-img-box">
+                        <img data-bind="attr: {src: image}"/>
+                    </div>
+                    <div class="knowledge-title-box" data-bind="text: title">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

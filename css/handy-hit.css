@@ -13,6 +13,20 @@
     height: auto;
     margin-bottom: 15px;
 }
+/*.knowledge {*/
+    /*height: 40px;*/
+/*}*/
+.knowledge-img-box, .knowledge-title-box {
+    display:inline-block;
+    vertical-align: middle;
+}
+.knowledge-title-box {
+    margin-left: 5px;
+}
+.knowledge-img-box img {
+    width: 35px;
+    height: 35px;
+}
 .marker-content {
     white-space: nowrap;
     display: block;

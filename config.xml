@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.scorpio147wbh.handyhit"
+        id        = "wbh.wilfred.handyhit"
         version   = "1.0.0">
 
 
@@ -56,6 +56,7 @@
     -->
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="nl.xservices.plugins.SocialSharing" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
