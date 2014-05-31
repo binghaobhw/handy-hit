@@ -2,10 +2,6 @@
     <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
     <div data-options="dxContent: {targetPlaceholder: 'content'}" >
         <button onclick="window.plugins.socialsharing.shareViaSMS('My cool message', null /* see the note below */, function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via SMS</button>
-        <button onclick="window.plugins.socialsharing.shareViaSMS('My cool message', '0612345678,0687654321', function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via SMS</button>
-        <button onclick="window.plugins.socialsharing.shareVia('com.tencent.mm', 'message', null, null, null, function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via mm</button>
-        <button onclick="window.plugins.socialsharing.shareVia('com.tencent.mm', 'message', 'subject', null, null, function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via mm</button>
-        <button onclick="window.plugins.socialsharing.shareVia('com.tencent.mm', 'message', 'subject', 'image', null, function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via mm</button>
-        <button onclick="window.plugins.socialsharing.shareVia('com.tencent.mm', 'message', 'subject', 'image', 'url', function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via mm</button>
+        <button onclick="window.plugins.sharePlugin.toWeChet('hi', 'yeah', function(msg) {alert('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via mm</button>
     </div>
 </div>
