@@ -57,6 +57,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
+    <gap:plugin name="wbh.wilfred.phonegap.plugin.share" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
