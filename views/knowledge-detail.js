@@ -28,7 +28,7 @@ HandyHit['knowledgeDetail'] = function(params) {
             }
         },
         share: function() {
-            window.plugins.socialsharing.share('Message only');
+            HandyHit.util.toWeChet(HandyHit.data.currentKnowledge().title);
         }
     };
     return viewModel;

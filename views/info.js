@@ -11,22 +11,45 @@
         desc: true
     }
 });
-HandyHit.info = function (params) {
+HandyHit['info'] = function(params) {
     var autoPagingEnabled = ko.observable(true);
     var showNextButton = ko.observable(false);
     var pullRefreshEnabled = ko.observable(true);
     var pullingDownText = ko.observable('往下拉更新资讯');
     var pulledDownText = ko.observable('可以松开了');
 
+    function initFeed() {
+        if (HandyHit.util.isConnected() && typeof google !== 'undefined') {
+            google.load("feeds", "1", {"callback": function() {
+                HandyHit.feed = new google.feeds.Feed("http://today.hit.edu.cn/rss.xml");
+                HandyHit.feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
+                HandyHit.feed.setNumEntries(20);
+                HandyHit.feed.load(function(result) {
+                    if (!result.error) {
+                        var remoteFeedEntries = result.feed.entries;
+                        for (var i = 0; i < remoteFeedEntries.length; i++) {
+                            HandyHit.data.feedEntrySource.store().insert(remoteFeedEntries[i]);
+                        }
+                    }
+                });
+            }});
+        } else {
+            HandyHit.util.notifyOffline();
+        }
+    }
     function loadFromRemote() {
-        HandyHit.feed.load(function(result) {
-            if (!result.error) {
-                remoteFeedEntries = result.feed.entries;
-                for (var i = 0; i < remoteFeedEntries.length; i++) {
-                    HandyHit.data.feedEntrySource.store().insert(remoteFeedEntries[i]);
+        if (HandyHit.util.isConnected() && HandyHit.feed != undefined) {
+            HandyHit.feed.load(function(result) {
+                if (!result.error) {
+                    var remoteFeedEntries = result.feed.entries;
+                    for (var i = 0; i < remoteFeedEntries.length; i++) {
+                        HandyHit.data.feedEntrySource.store().insert(remoteFeedEntries[i]);
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            HandyHit.util.notifyOffline();
+        }
     }
 
     function navigateDetail(entry) {
@@ -42,12 +65,8 @@ HandyHit.info = function (params) {
         pulledDownText: pulledDownText,
         pullRefreshAction: loadFromRemote,
         feedEntrySource: HandyHit.data.feedEntrySource,
-        viewShowing: function() {
-            if (!HandyHit.util.isConnected()) {
-                DevExpress.ui.notify('无网络连接', 'warning', 3000);
-            }
-        },
-        navigateDetail: navigateDetail
+        navigateDetail: navigateDetail,
+        viewShowing: initFeed
     };
 
     return viewModel;

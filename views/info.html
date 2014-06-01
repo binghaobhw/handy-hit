@@ -10,8 +10,10 @@
             pullRefreshAction: pullRefreshAction
         }">
             <div data-options="dxTemplate : { name: 'item' }" data-bind="dxAction: function() {$root.navigateDetail($data);}">
-                <p data-bind="text: title"></p>
-                <p><small data-bind="text: publishedDate"></small></p>
+                <div class="info">
+                    <p data-bind="text: title"></p>
+                    <p><small data-bind="text: publishedDate"></small></p>
+                </div>
             </div>
         </div>
     </div>

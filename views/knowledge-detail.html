@@ -1,6 +1,6 @@
 ﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
     <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
-    <div data-bind="dxCommand: { id: 'share', title: 'share', icon: 'globe', action: share }" ></div>
+    <div data-bind="dxCommand: { id: 'share', title: 'share', icon: 'globe', action: function() {share(title);} }" ></div>
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
         <div data-bind="dxScrollView: {}">
             <div class="knowledge-detail">

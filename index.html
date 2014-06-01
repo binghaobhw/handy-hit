@@ -1,81 +1,96 @@
 <!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
 <html>
-<head>
-    <title>HandyHit</title>
-        
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <head>
+        <title>Handy HIT</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <script type="text/javascript" src="cordova.js"></script>
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+		<!--<![endif]-->
+		<script type="text/javascript" src="js/knockout-3.0.0.js"></script>
+		<script type="text/javascript" src="js/globalize.min.js"></script>
+		<script type="text/javascript" src="js/dx.phonejs.js"></script>
 
-    <!-- This script is added by PhoneGap build -->
-    <script type="text/javascript" src="cordova.js"></script>
-    
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <![endif]-->
-    <!--[if gte IE 9]><!-->
-    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-    <!--<![endif]-->
-    
-    <script type="text/javascript" src="js/knockout-3.0.0.js"></script>
-    <script type="text/javascript" src="js/globalize.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+		<link rel="stylesheet" type="text/css" href="css/dx.ios.default.css" />
 
-    <script type="text/javascript" src="js/dx.phonejs.js"></script>
-    <!--<script type="text/javascript" src="js/aspect.min.js" />-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6"></script>
-    <!--
-    <script type="text/javascript" src="js/dx.phonejs.debug.js"></script>
-    -->
-        
-    <!--     
-    <script type="text/javascript" src="js/localization/dx.phonejs.ja.js"></script>
-    -->
-    
-    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="css/dx.ios.default.css" />
-    <!--<link rel="stylesheet" type="text/css" href="css/dx.android.holo-dark.css" />-->
-    <!--link rel="stylesheet" type="text/css" href="css/dx.android.holo-light.css" /-->
-    <!--<link rel="stylesheet" type="text/css" href="css/dx.win8.black.css" />-->
-    <!--link rel="stylesheet" type="text/css" href="css/dx.win8.white.css" /-->
-    <!--<link rel="stylesheet" type="text/css" href="css/dx.tizen.white.css" />-->
-    <!--link rel="stylesheet" type="text/css" href="css/dx.tizen.black.css" /-->
-    <!--<link rel="stylesheet" type="text/css" href="css/dx.generic.light.css" />-->
+		<!-- App -->
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/data.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/handy-hit.css" />
 
-    <!-- App -->
-    <script type="text/javascript" src="js/util.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="data/simple-data.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/handy-hit.css" />
+		<!-- Layouts -->
+		<script type="text/javascript" src="layouts/Navbar/NavbarLayout.js"></script>
+		<link rel="stylesheet" type="text/css" href="layouts/Navbar/NavbarLayout.css" />
+		<link rel="dx-template" type="text/html" href="layouts/Navbar/NavbarLayout.html"/>
 
-    <!-- Layouts -->
-    <script type="text/javascript" src="layouts/Navbar/NavbarLayout.js"></script>
-    <link rel="stylesheet" type="text/css" href="layouts/Navbar/NavbarLayout.css" />
-    <link rel="dx-template" type="text/html" href="layouts/Navbar/NavbarLayout.html"/>
+		<script type="text/javascript" src="layouts/empty/empty-layout.js"></script>
+		<link rel="stylesheet" type="text/css" href="layouts/empty/empty-layout.css" />
+		<link rel="dx-template" type="text/html" href="layouts/empty/empty-layout.html" />
 
-    <script type="text/javascript" src="layouts/empty/empty-layout.js"></script>
-    <link rel="stylesheet" type="text/css" href="layouts/empty/empty-layout.css" />
-    <link rel="dx-template" type="text/html" href="layouts/empty/empty-layout.html" />
+		<!-- App views -->
+		<script type="text/javascript" src="views/category.js"></script>
+		<link rel="dx-template" type="text/html" href="views/category.html"/>
+		<script type="text/javascript" src="views/knowledge.js"></script>
+		<link rel="dx-template" type="text/html" href="views/knowledge.html"/>
+		<script type="text/javascript" src="views/knowledge-detail.js"></script>
+		<link rel="dx-template" type="text/html" href="views/knowledge-detail.html"/>
+		<script type="text/javascript" src="views/info.js"></script>
+		<link rel="dx-template" type="text/html" href="views/info.html"/>
+		<script type="text/javascript" src="views/info-detail.js"></script>
+		<link rel="dx-template" type="text/html" href="views/info-detail.html"/>
+        <script type="text/javascript" src="views/campus.js"></script>
+        <link rel="dx-template" type="text/html" href="views/campus.html"/>
+        <link rel="dx-template" type="text/html" href="views/map.html"/>
+        <script type="text/javascript" src="views/map.js"></script>
+		<script type="text/javascript" src="views/picture.js"></script>
+		<link rel="dx-template" type="text/html" href="views/picture.html"/>
+    </head>
+    <body>
+		<div class="dx-viewport"></div>
+        <!--<script type="text/javascript" src="https://www.google.com/jsapi" defer></script>-->
+        <!--<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6"></script>-->
+        <script type="text/javascript">
+            function init() {
 
-    <!-- App views -->
-    <script type="text/javascript" src="views/category.js"></script>
-    <link rel="dx-template" type="text/html" href="views/category.html"/>
-    <script type="text/javascript" src="views/knowledge.js"></script>
-    <link rel="dx-template" type="text/html" href="views/knowledge.html"/>
-    <script type="text/javascript" src="views/knowledge-detail.js"></script>
-    <link rel="dx-template" type="text/html" href="views/knowledge-detail.html"/>
-    <script type="text/javascript" src="views/info.js"></script>
-    <link rel="dx-template" type="text/html" href="views/info.html"/>
-    <script type="text/javascript" src="views/info-detail.js"></script>
-    <link rel="dx-template" type="text/html" href="views/info-detail.html"/>
-    <script type="text/javascript" src="views/map.js"></script>
-    <link rel="dx-template" type="text/html" href="views/map.html"/>
-    <script type="text/javascript" src="views/picture.js"></script>
-    <link rel="dx-template" type="text/html" href="views/picture.html"/>
-    <link rel="dx-template" type="text/html" href="views/share.html"/>
-</head>
-<body>
-    <div class="dx-viewport"></div>
-</body>
+            }
+            function loadScript(url) {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = url;
+                document.body.appendChild(script);
+            }
+
+            window.onload = function() {
+                loadScript('https://www.google.com/jsapi');
+                loadScript('http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6&callback=init');
+
+            };
+        </script>
+    </body>
 </html>
