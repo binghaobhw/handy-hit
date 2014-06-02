@@ -6,6 +6,12 @@ HandyHit.util.isConnected = function() {
 HandyHit.util.notifyOffline = function() {
     DevExpress.ui.notify('无网络连接', 'warning', 3000);
 };
+HandyHit.util.loadScript = function(url) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.body.appendChild(script);
+};
 HandyHit.util.toWeChet = function(content) {
     window.plugins.sharePlugin.toWeChet(
         '',

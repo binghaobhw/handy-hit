@@ -1,6 +1,7 @@
 .info p, .knowledge p {
     white-space: nowrap;
     text-overflow: ellipsis;
+    overflow: hidden;
 }
 .info-detail p, .knowledge-detail p {
     white-space: pre-wrap;
