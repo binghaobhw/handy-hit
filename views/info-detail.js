@@ -28,9 +28,13 @@
             if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
                 HandyHit.buildPicture(pictures, 'infoDetail');
             }
+        },
+        toWeChetFriend: function() {
+            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
+        },
+        toWeChetTimeline: function() {
+            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
         }
-
-
     };
     return viewModel;
 };

@@ -27,8 +27,11 @@ HandyHit['knowledgeDetail'] = function(params) {
                 HandyHit.buildPicture(pictures, 'knowledgeDetail');
             }
         },
-        share: function() {
-            HandyHit.util.toWeChet(HandyHit.data.currentKnowledge().title);
+        toWeChetFriend: function() {
+            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
+        },
+        toWeChetTimeline: function() {
+            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
         }
     };
     return viewModel;

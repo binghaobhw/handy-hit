@@ -58,7 +58,13 @@ HandyHit['map'] = function(params) {
 
     var viewModel = {
         // Put the binding properties here
-        title: HandyHit.data.currentCampus().campus
+        title: HandyHit.data.currentCampus().campus,
+        toWeChetFriend: function() {
+            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
+        },
+        toWeChetTimeline: function() {
+            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
+        }
     };
 
     return viewModel;

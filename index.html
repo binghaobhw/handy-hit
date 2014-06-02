@@ -73,23 +73,9 @@
     </head>
     <body>
 		<div class="dx-viewport"></div>
-        <!--<script type="text/javascript" src="https://www.google.com/jsapi" defer></script>-->
-        <!--<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6"></script>-->
         <script type="text/javascript">
-            function init() {
-
-            }
-
-            function initFeed() {
-                google.load("feeds", "1", {"callback": function() {
-                    HandyHit.feed = new google.feeds.Feed("http://today.hit.edu.cn/rss.xml");
-                    HandyHit.feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
-                    HandyHit.feed.setNumEntries(20);
-                }});
-            }
             window.onload = function() {
-                HandyHit.util.loadScript('http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6&callback=init');
-                HandyHit.util.loadScript('https://www.google.com/jsapi?callback=initFeed');
+                HandyHit.util.loadScript('http://webapi.amap.com/maps?v=1.2&key=b240bcf5e63b472ff6de160a9d6625b6&callback=?');
             };
         </script>
     </body>

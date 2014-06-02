@@ -33,7 +33,9 @@
                     commands: [
                         {id: 'back', location: 'left', showText: false},
                         {id: 'search', location: 'right', showText: false},
-                        {id: 'share', location: 'right', showText: false}
+                        {id: 'toWeChetFriend', location: 'menu', showText: true},
+                        {id: 'toWeChetTimeline', location: 'menu', showText: true},
+                        {id: 'clear', location: 'menu', showText: true}
                     ]
                 }
             }
