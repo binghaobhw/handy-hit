@@ -37,7 +37,14 @@ HandyHit['knowledge'] = function (params) {
         showSearch: ko.observable(false),
         knowledgeList: knowledgeList,
         title: title,
-        navigateDetail: navigateDetail
+        navigateDetail: navigateDetail,
+        headerClick: function() {
+            $('#knowledge-list').dxList('instance').scrollTo(0);
+        },
+        backVisible: true,
+        menuVisible: false,
+        menuItems: [],
+        menuClick: null
     };
     return viewModel;
 };  

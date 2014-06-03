@@ -55,15 +55,28 @@
     }
 };
 HandyHit['map'] = function(params) {
-
+    function toWeChetFriend() {
+        HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
+    }
+    function toWeChetTimeline() {
+        HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
+    }
     var viewModel = {
         // Put the binding properties here
         title: HandyHit.data.currentCampus().campus,
-        toWeChetFriend: function() {
-            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
-        },
-        toWeChetTimeline: function() {
-            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
+        headerClick: null,
+        backVisible: true,
+        menuVisible: true,
+        menuItems: ['分享到微信好友', '分享到微信朋友圈'],
+        menuClick: function(e) {
+            switch (e.itemData) {
+                case '分享到微信好友':
+                    toWeChetFriend();
+                    break;
+                case '分享到微信朋友圈':
+                    toWeChetTimeline();
+                    break;
+            }
         }
     };
 

@@ -15,7 +15,12 @@ HandyHit['knowledgeDetail'] = function(params) {
         }
         HandyHit.buildPicture(pictures, 'knowledgeDetail');
     }
-
+    function toWeChetFriend() {
+        HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
+    }
+    function toWeChetTimeline() {
+        HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
+    }
     var viewModel = {
         paragraphs: paragraphs,
         navigatePicture: function(index) {
@@ -27,11 +32,21 @@ HandyHit['knowledgeDetail'] = function(params) {
                 HandyHit.buildPicture(pictures, 'knowledgeDetail');
             }
         },
-        toWeChetFriend: function() {
-            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
+        headerClick: function() {
+            $('#knowledge-detail-scroll-view').dxScrollView('instance').scrollTo(0);
         },
-        toWeChetTimeline: function() {
-            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentKnowledge().title + ']。指南在手，工大任我走！');
+        backVisible: true,
+        menuVisible: true,
+        menuItems: ['分享到微信好友', '分享到微信朋友圈'],
+        menuClick: function(e) {
+            switch (e.itemData) {
+                case '分享到微信好友':
+                    toWeChetFriend();
+                    break;
+                case '分享到微信朋友圈':
+                    toWeChetTimeline();
+                    break;
+            }
         }
     };
     return viewModel;

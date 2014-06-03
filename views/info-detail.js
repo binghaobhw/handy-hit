@@ -19,7 +19,12 @@
             });
             HandyHit.buildPicture(pictures, 'infoDetail');
         });
-
+    function toWeChetFriend() {
+        HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
+    }
+    function toWeChetTimeline() {
+        HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
+    }
     var viewModel = {
         // Put the binding properties here
         title: title,
@@ -29,11 +34,21 @@
                 HandyHit.buildPicture(pictures, 'infoDetail');
             }
         },
-        toWeChetFriend: function() {
-            HandyHit.util.toWeChetFriend('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
+        headerClick: function() {
+            $('#info-detail-scroll-view').dxScrollView('instance').scrollTo(0);
         },
-        toWeChetTimeline: function() {
-            HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
+        backVisible: true,
+        menuVisible: true,
+        menuItems: ['分享到微信好友', '分享到微信朋友圈'],
+        menuClick: function(e) {
+            switch (e.itemData) {
+                case '分享到微信好友':
+                    toWeChetFriend();
+                    break;
+                case '分享到微信朋友圈':
+                    toWeChetTimeline();
+                    break;
+            }
         }
     };
     return viewModel;

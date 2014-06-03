@@ -1,6 +1,6 @@
 ﻿<div data-options="dxView: {name: 'campus', title: '校区'}" >
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
-        <div data-bind="dxList: { dataSource: campusList }">
+        <div id="campus-list" data-bind="dxList: { dataSource: campusList }">
             <div data-options="dxTemplate : { name: 'item' }"
                  data-bind="text: campus, dxAction: function() {$root.navigateMap($data);}">
             </div>

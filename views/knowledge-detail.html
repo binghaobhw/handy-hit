@@ -1,9 +1,6 @@
 ﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
-    <div data-bind="dxCommand: { id: 'back', title: 'Back', icon: 'arrowleft', action: '#_back' }" ></div>
-    <div data-bind="dxCommand: { id: 'toWeChetFriend', title: '分享到微信好友', icon: 'user', action: toWeChetFriend}" ></div>
-    <div data-bind="dxCommand: { id: 'toWeChetTimeline', title: '分享到微信朋友圈', icon: 'group', action: toWeChetTimeline}" ></div>
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
-        <div data-bind="dxScrollView: {}">
+        <div id="knowledge-detail-scroll-view" data-bind="dxScrollView: {}">
             <div class="knowledge-detail">
                 <div data-bind="foreach: paragraphs">
                     <div data-bind="if: 'image' in $data">

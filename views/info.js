@@ -31,6 +31,19 @@ HandyHit['info'] = function(params) {
                     if (data.responseData != undefined && data.responseData.feed != undefined) {
                         var remoteFeedEntries = data.responseData.feed.entries;
                         for (var i = 0; i < remoteFeedEntries.length; i++) {
+                            var date = new Date(remoteFeedEntries[i].publishedDate);
+                            var year = date.getFullYear().toString();
+                            var month = (date.getMonth() + 1).toString();
+                            var day = date.getDate().toString();
+                            var hour = date.getHours().toString();
+                            var minute = date.getMinutes().toString();
+                            var second = date.getSeconds().toString();
+                            remoteFeedEntries[i].publishedDate = year + '-' +
+                                (month[1] ? month : '0' + month) + '-' +
+                                (day[1] ? day : '0' + day) + ' ' +
+                                (hour[1] ? hour: '0' + hour) + ':' +
+                                (minute[1] ? minute: '0' + minute) + ':' +
+                                (second[1] ? second: '0' + second);
                             HandyHit.data.feedEntrySource.store().insert(remoteFeedEntries[i]);
                         }
                     }
@@ -55,7 +68,15 @@ HandyHit['info'] = function(params) {
         pullRefreshAction: loadFromRemote,
         feedEntrySource: HandyHit.data.feedEntrySource,
         navigateDetail: navigateDetail,
-        clear: clear
+        headerClick: function() {
+            $('#info-list').dxList('instance').scrollTo(0);
+        },
+        backVisible: false,
+        menuVisible: true,
+        menuItems: ['清空缓存'],
+        menuClick: function(e) {
+            clear();
+        }
     };
 
     return viewModel;

@@ -1,7 +1,6 @@
 ﻿<div data-options="dxView: {name: 'info', title: '资讯'}" >
-    <div data-bind="dxCommand: { id: 'clear', title: '清理缓存', icon: 'remove', action: clear }" ></div>
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
-        <div data-bind="dxList: {
+        <div class="info-list" data-bind="dxList: {
             dataSource: feedEntrySource,
             autoPagingEnabled: autoPagingEnabled,
             showNextButton: showNextButton,
