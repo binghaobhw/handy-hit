@@ -61,23 +61,20 @@ HandyHit['map'] = function(params) {
     function toWeChetTimeline() {
         HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + HandyHit.data.currentCampus().campus + ']的地图。各种地方全掌握！');
     }
+    var actionSheetVisible = ko.observable(false);
     var viewModel = {
         // Put the binding properties here
         title: HandyHit.data.currentCampus().campus,
-        headerClick: null,
         backVisible: true,
         menuVisible: true,
-        menuItems: ['分享到微信好友', '分享到微信朋友圈'],
-        menuClick: function(e) {
-            switch (e.itemData) {
-                case '分享到微信好友':
-                    toWeChetFriend();
-                    break;
-                case '分享到微信朋友圈':
-                    toWeChetTimeline();
-                    break;
-            }
-        }
+        menuClick: function() {
+            actionSheetVisible(true);
+        },
+        actionSheetVisible: actionSheetVisible,
+        actionSheetItems: [
+            {text: '分享到微信好友', clickAction: toWeChetFriend},
+            {text: '分享到微信朋友圈', clickAction: toWeChetTimeline}
+        ]
     };
 
     return viewModel;

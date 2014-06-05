@@ -1,5 +1,6 @@
 ﻿<div data-options="dxView: {name: 'info', title: '资讯'}" >
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
+        <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div class="info-list" data-bind="dxList: {
             dataSource: feedEntrySource,
             autoPagingEnabled: autoPagingEnabled,
@@ -7,7 +8,8 @@
             pullRefreshEnabled: pullRefreshEnabled,
             pullingDownText: pullingDownText,
             pulledDownText: pulledDownText,
-            pullRefreshAction: pullRefreshAction
+            pullRefreshAction: pullRefreshAction,
+            refreshingText: refreshingText
         }">
             <div data-options="dxTemplate : { name: 'item' }" data-bind="dxAction: function() {$root.navigateDetail($data);}">
                 <div class="info">

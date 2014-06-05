@@ -1,6 +1,8 @@
-﻿<div data-options="dxView: {name: 'infoDetail'}" >
+﻿<div data-options="dxView: {name: 'infoDetail', title: '资讯'}" >
     <div data-options="dxContent: {targetPlaceholder: 'content'}" >
+        <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div id="info-detail-scroll-view" data-bind="dxScrollView: {}">
+            <p class="info-detail-title"><strong data-bind="text: infoTitle"></strong></p>
             <div class="info-detail" data-bind="html: content"></div>
         </div>>
     </div>

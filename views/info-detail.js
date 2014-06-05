@@ -25,31 +25,26 @@
     function toWeChetTimeline() {
         HandyHit.util.toWeChetTimeline('我用Handy HIT看了[' + title + ']。校内新闻想看就看！');
     }
+    var actionSheetVisible = ko.observable(false);
     var viewModel = {
         // Put the binding properties here
-        title: title,
+        infoTitle: title,
         content: content,
         viewShown: function() {
             if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
                 HandyHit.buildPicture(pictures, 'infoDetail');
             }
         },
-        headerClick: function() {
-            $('#info-detail-scroll-view').dxScrollView('instance').scrollTo(0);
-        },
         backVisible: true,
         menuVisible: true,
-        menuItems: ['分享到微信好友', '分享到微信朋友圈'],
-        menuClick: function(e) {
-            switch (e.itemData) {
-                case '分享到微信好友':
-                    toWeChetFriend();
-                    break;
-                case '分享到微信朋友圈':
-                    toWeChetTimeline();
-                    break;
-            }
-        }
+        menuClick: function() {
+            actionSheetVisible(true);
+        },
+        actionSheetVisible: actionSheetVisible,
+        actionSheetItems: [
+            {text: '分享到微信好友', clickAction: toWeChetFriend},
+            {text: '分享到微信朋友圈', clickAction: toWeChetTimeline}
+        ]
     };
     return viewModel;
 };

@@ -21,10 +21,8 @@ HandyHit['picture'] = function(params) {
         // Put the binding properties here
         pictures: HandyHit.data.pictures,
         selectedIndex: HandyHit.data.selectedPicture,
-        headerClick: null,
         backVisible: true,
         menuVisible: true,
-        menuItems: [],
         menuClick: null
     };
     return viewModel;

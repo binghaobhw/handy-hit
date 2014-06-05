@@ -1,5 +1,6 @@
 ﻿<div data-options="dxView: {name: 'map', title: '地图'}" >
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
+        <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div id="mapContainer" data-bind="map: true"></div>
     </div>
 </div>

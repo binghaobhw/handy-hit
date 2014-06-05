@@ -38,9 +38,6 @@ HandyHit['knowledge'] = function (params) {
         knowledgeList: knowledgeList,
         title: title,
         navigateDetail: navigateDetail,
-        headerClick: function() {
-            $('#knowledge-list').dxList('instance').scrollTo(0);
-        },
         backVisible: true,
         menuVisible: false,
         menuItems: [],

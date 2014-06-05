@@ -1,19 +1,17 @@
 ﻿<div class="navbar-layout" data-options="dxLayout : { name: 'navbar', platform: 'ios' } " >
     <div class="transition-frame" data-options="dxTransition: { name: 'main', type: 'slide' }">
         <div class="layout-header">
-            <div data-bind="dxToolbar: { clickAction: $root.headerClick, items: [
+            <div data-bind="dxToolbar: {items: [
                     {location: 'left', widget: 'button', options: {
                         visible: $root.backVisible,
                         icon: 'arrowleft',
                         clickAction: '#_back'
                     }},
                     {location: 'center', text: title},
-                    {location: 'right', widget: 'dropDownMenu', options: {
+                    {location: 'right', widget: 'button', options: {
                         visible: $root.menuVisible,
-                        items: $root.menuItems,
-                        itemClickAction: $root.menuClick,
-                        buttonIcon: 'plus',
-                        usePopover: true
+                        icon: 'plus',
+                        clickAction: $root.menuClick
                     }}
                 ]}"
                  data-options="dxCommandContainer : { id: 'my-command-container' }">

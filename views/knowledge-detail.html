@@ -1,5 +1,6 @@
 ﻿<div data-options="dxView: {name: 'knowledgeDetail'}">
     <div data-options="dxContent: {targetPlaceholder: 'content'}">
+        <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div id="knowledge-detail-scroll-view" data-bind="dxScrollView: {}">
             <div class="knowledge-detail">
                 <div data-bind="foreach: paragraphs">

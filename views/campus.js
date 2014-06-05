@@ -15,12 +15,8 @@ HandyHit['campus'] = function(params) {
         // Put the binding properties here
         campusList: HandyHit.data.markerData,
         navigateMap: navigateMap,
-        headerClick: function() {
-            $('#campus-list').dxList('instance').scrollTo(0);
-        },
         backVisible: false,
         menuVisible: false,
-        menuItems: [],
         menuClick: null
     };
 
