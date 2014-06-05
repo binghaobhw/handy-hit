@@ -26,31 +26,30 @@ HandyHit['info'] = function(params) {
     function loadFromRemote() {
         if (HandyHit.util.isConnected()) {
             $.ajax({
-                url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q=' + encodeURIComponent('http://today.hit.edu.cn/rss.xml'),
+                url: 'http://today.hit.edu.cn/rss.xml',
                 dataType: 'jsonp',
-                success: function(data) {
+                success: function(xml) {
                     DevExpress.ui.notify('获取成功', 'info', 1000);
-                    if (data.responseData != undefined && data.responseData.feed != undefined) {
-                        var remoteFeedEntries = data.responseData.feed.entries;
-                        for (var i = 0; i < remoteFeedEntries.length; i++) {
-                            var rssDate = remoteFeedEntries[i].publishedDate;
-                            var modifiedDate = rssDate.replace(/-0700$/, '+0800');
-                            var date = new Date(modifiedDate);
-                            var year = date.getFullYear().toString();
-                            var month = (date.getMonth() + 1).toString();
-                            var day = date.getDate().toString();
-                            var hour = date.getHours().toString();
-                            var minute = date.getMinutes().toString();
-                            var second = date.getSeconds().toString();
-                            remoteFeedEntries[i].publishedDate = year + '-' +
+                    $(xml).find('item').each(function() {
+                        var pubDate = new Date($(this).find("pubDate").text());
+                        var year = pubDate.getFullYear().toString();
+                        var month = (pubDate.getMonth() + 1).toString();
+                        var day = pubDate.getDate().toString();
+                        var hour = pubDate.getHours().toString();
+                        var minute = pubDate.getMinutes().toString();
+                        var second = pubDate.getSeconds().toString();
+                        var entry = {
+                            title: $(this).find("title").text(),
+                            content: $(this).find("description").text(),
+                            pubDate: year + '-' +
                                 (month[1] ? month : '0' + month) + '-' +
                                 (day[1] ? day : '0' + day) + ' ' +
                                 (hour[1] ? hour: '0' + hour) + ':' +
                                 (minute[1] ? minute: '0' + minute) + ':' +
-                                (second[1] ? second: '0' + second);
-                            HandyHit.data.feedEntrySource.store().insert(remoteFeedEntries[i]);
-                        }
-                    }
+                                (second[1] ? second: '0' + second)
+                        };
+                        HandyHit.data.feedEntrySource.store().insert(entry);
+                    });
                 }
             });
         } else {
