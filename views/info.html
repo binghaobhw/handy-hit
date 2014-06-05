@@ -2,6 +2,7 @@
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
         <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div class="info-list" data-bind="dxList: {
+            noDataText: '暂无资讯',
             dataSource: feedEntrySource,
             autoPagingEnabled: autoPagingEnabled,
             showNextButton: showNextButton,
