@@ -47,6 +47,7 @@ HandyHit['info'] = function(params) {
                         (hour[1] ? hour: '0' + hour) + ':' +
                         (minute[1] ? minute: '0' + minute) + ':' +
                         (second[1] ? second: '0' + second);
+                    entry['description'] = entry['description'].replace(/(<a )/g, '$1' + 'onclick="return false;"');
                     HandyHit.data.feedEntrySource.store().insert(entry);
                 });
                 DevExpress.ui.notify('获取成功', 'info', 1000);
@@ -57,7 +58,7 @@ HandyHit['info'] = function(params) {
     }
 
     function navigateDetail(entry) {
-        HandyHit.app.navigate('infoDetail/' + entry.publishedDate);
+        HandyHit.app.navigate('infoDetail/' + entry.pubDate);
     }
 
     var actionSheetVisible = ko.observable(false);
