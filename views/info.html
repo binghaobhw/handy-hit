@@ -2,6 +2,7 @@
     <div data-options="dxContent: { targetPlaceholder: 'content' } " >
         <div data-bind="dxActionSheet: {visible: actionSheetVisible, dataSource: actionSheetItems, showTitle: false}"></div>
         <div class="info-list" data-bind="dxList: {
+            pageLoadingText: '获取更早的资讯',
             noDataText: '暂无资讯',
             dataSource: feedEntrySource,
             autoPagingEnabled: autoPagingEnabled,
@@ -15,7 +16,7 @@
             <div data-options="dxTemplate : { name: 'item' }" data-bind="dxAction: function() {$root.navigateDetail($data);}">
                 <div class="info">
                     <p data-bind="text: title"></p>
-                    <p><small data-bind="text: publishedDate"></small></p>
+                    <p><small data-bind="text: pubDate"></small></p>
                 </div>
             </div>
         </div>

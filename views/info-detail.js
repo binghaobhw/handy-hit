@@ -1,17 +1,17 @@
 ﻿HandyHit['infoDetail'] = function (params) {
     var title;
-    var content;
+    var description;
     var pictures;
     HandyHit.data.feedEntrySource.store().byKey(params.id)
         .done(function(dataItem) {
             title = dataItem['title'];
-            content = dataItem['content'];
+            description = dataItem['description'];
             var domain = 'http://today.hit.edu.cn';
             // cross domain relative path
-            content = content.replace(/href="([^"]*)"/g, 'href="' + domain + '$1"');
+            description = description.replace(/href="([^"]*)"/g, 'href="' + domain + '$1"');
             pictures = [];
             var index = -1;
-            content = content.replace(/src="([^"]*)"/g, function (whole, group) {
+            description = description.replace(/src="([^"]*)"/g, function (whole, group) {
                 var picturePath = domain + group;
                 pictures.push(picturePath);
                 index += 1;
@@ -29,7 +29,7 @@
     var viewModel = {
         // Put the binding properties here
         infoTitle: title,
-        content: content,
+        description: description,
         viewShown: function() {
             if (HandyHit.data.pictureOwner() != 'knowledgeDetail') {
                 HandyHit.buildPicture(pictures, 'infoDetail');
