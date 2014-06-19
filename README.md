@@ -7,9 +7,9 @@
 
 ## Index
 
-1. [Screenshot](#1-screenshot)
-2. [Requirement](#2-requirement)
-3. [Installation](#3-installation)
+1. [Screenshot](#1screenshot)
+2. [Requirement](#2requirement)
+3. [Installation](#3installation)
 
 ## 1.Screenshots
 Android
