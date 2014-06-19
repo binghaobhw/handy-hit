@@ -40,14 +40,25 @@
                     label.addClass('marker-content');
                     markerContent.append(icon);
                     markerContent.append(label);
-                    new AMap.Marker({
+                    var marker = new AMap.Marker({
                         map: mapObj,
                         content: markerContent[0],
                         position: new AMap.LngLat(markerData['lng'], markerData['lat'])
                     });
+                    if (markerData['detail'] != undefined) {
+                        marker['categoryId'] = markerData['detail']['categoryId'];
+                        marker['knowledgeId'] = markerData['detail']['knowledgeId'];
+                        AMap.event.addListener(marker, 'click', function(e) {
+                            var categoryId = e['target']['categoryId'];
+                            var knowledgeId = e['target']['knowledgeId'];
+                            var detail = HandyHit.data.simpleData[categoryId]['knowledgeList'][knowledgeId];
+                            HandyHit.data.currentKnowledge(detail);
+                            HandyHit.app.navigate('knowledgeDetail/' + categoryId + '/' + knowledgeId)
+                        });
+                    }
                 }
                 var center = new AMap.LngLat(currentCampus.center['lng'], currentCampus.center['lat']);
-                mapObj.setZoomAndCenter(16, center);
+                mapObj.setZoomAndCenter(15, center);
             }
         } else {
             HandyHit.util.notifyOffline();

@@ -1772,12 +1772,29 @@ HandyHit.data.markerData = [
             {
                 name: 'A02公寓',
                 lng: 126.636518,
-                lat: 45.742887
+                lat: 45.742887,
+                detail: {
+                    categoryId: 1,
+                    knowledgeId: 1
+                }
             },
             {
                 name: 'A03公寓',
                 lng: 126.635343,
-                lat: 45.743524
+                lat: 45.743524,
+                detail: {
+                    categoryId: 1,
+                    knowledgeId: 8
+                }
+            },
+            {
+                name: '哈工大医院',
+                lng: 126.637688,
+                lat: 45.742614,
+                detail: {
+                    categoryId: 2,
+                    knowledgeId: 8
+                }
             }
         ]
     },
@@ -1790,6 +1807,7 @@ HandyHit.data.markerData = [
                 name: 'B02公寓',
                 lng: 126.68277,
                 lat: 45.757651
-            }        ]
+            }
+        ]
     }
 ];
