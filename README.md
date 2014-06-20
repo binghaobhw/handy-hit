@@ -11,7 +11,7 @@
 2. [Requirement](#2requirement)
 3. [Installation](#3installation)
 
-## 1.Screenshots
+## 1.Screenshot
 Android
 
 ![ScreenShot](screenshot-guide.png)
